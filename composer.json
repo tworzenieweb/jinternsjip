@@ -29,7 +29,8 @@
     "vlucas/phpdotenv": "1.0.2",
     "wpackagist/bootstrap-shortcodes":"*",
     "wpackagist/dynamic-featured-image":"*",
-    "wpackagist/wordpress-seo":"*"
+    "wpackagist/wordpress-seo":"*",
+    "wpackagist/wp-super-cache":"*"
   },
   "extra": {
     "installer-paths": {
