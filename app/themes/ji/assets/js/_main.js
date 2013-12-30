@@ -14,30 +14,6 @@ var ExampleSite = {
     home: {
         init: function() {
 
-            if ($('#sequence').length > 0) {
-                var options = {
-                    autoPlay: true,
-                    autoPlayDelay: 12000,
-                    pauseOnHover: false,
-                    hidePreloaderDelay: 1000,
-                    nextButton: true,
-                    prevButton: true,
-                    pauseButton: true,
-                    preloader: true,
-                    hidePreloaderUsingCSS: false,
-                    animateStartingFrameIn: true,
-                    navigationSkipThreshold: 1700,
-                    preventDelayWhenReversingAnimations: true,
-                    customKeyEvents: {
-                        80: "pause"
-                    }
-                };
-
-
-
-            }
-            var sequence = $("#sequence").sequence(options).data("sequence");
-
         }
     },
     // About page
@@ -69,3 +45,66 @@ var UTIL = {
 };
 
 $(document).ready(UTIL.loadEvents);
+
+
+jQuery(function() {
+
+    var options;
+
+    if ($('#sequence').length > 0) {
+        options = {
+            autoPlay: true,
+            autoPlayDelay: 12000,
+            pauseOnHover: false,
+            hidePreloaderDelay: 1000,
+            nextButton: false,
+            prevButton: false,
+            pagination: true,
+            pauseButton: false,
+            preloader: true,
+            hidePreloaderUsingCSS: false,
+            animateStartingFrameIn: true,
+            navigationSkipThreshold: 1700,
+            preventDelayWhenReversingAnimations: true,
+            customKeyEvents: {
+                80: "pause"
+            }
+        };
+
+
+
+    }
+    var sequence = $("#sequence").sequence(options).data("sequence");
+    
+    sequence.beforeCurrentFrameAnimatesOut = function(){
+        
+        var current = sequence.nextFrameID ? sequence.nextFrameID : 1;
+        
+        var currentSlide = $('.sequence-canvas li').eq(current - 1);
+        
+        console.log(currentSlide.data('background'));
+        
+        $('.banner-container').css("background-image", "url(" + currentSlide.data('background') + ")");
+        
+        
+        
+    };
+    
+    $('.box_area_slider .play-button').on('click', function(e) {
+       e.preventDefault();
+       
+       var src = 'http://www.youtube.com/v/URL&amp;autoplay=0&amp;cc_load_policy=1&amp;hd=1&amp;controls=1&amp;autohide=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0&amp;wmode=opaque&amp;html5=1'.replace('URL', $(this).closest('li').data('youtube'));
+       
+       
+       console.log(src);
+       
+       $('#myModal').modal('show');
+       $('#myModal iframe').attr('src', src);
+       
+    });
+    
+    
+    $('.homepage-container .col-sm-4').equalHeights();
+
+
+});
