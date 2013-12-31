@@ -47,13 +47,3 @@
 
 
 </div>
-
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <iframe width="100%" height="300" frameborder="0" allowfullscreen="true"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>

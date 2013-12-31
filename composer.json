@@ -30,7 +30,9 @@
     "wpackagist/bootstrap-shortcodes":"*",
     "wpackagist/dynamic-featured-image":"*",
     "wpackagist/wordpress-seo":"*",
-    "wpackagist/wp-super-cache":"*"
+    "wpackagist/wp-super-cache":"*",
+    "wpackagist/my-content-management":"*",
+    "wpackagist/black-studio-tinymce-widget": "*"
   },
   "extra": {
     "installer-paths": {

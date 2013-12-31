@@ -6,6 +6,14 @@
     max-width: 1280px;
     position: relative;
     height: 478px;
+    
+    @media (max-width: @screen-sm-max) {
+        
+        height: 363px;
+        
+    }
+    
+    
 }
 #sequence > .sequence-canvas {
     height: 100%;
@@ -30,13 +38,21 @@
     .text
     {
         opacity: 0;
-        right: -100%;
+        left: -100%;
         bottom: 50px;
-        -webkit-transition-property: right, opacity;
-        -moz-transition-property: right, opacity;
-        -ms-transition-property: right, opacity;
-        -o-transition-property: right, opacity;
-        transition-property: right, opacity;
+        
+        @media (max-width: @screen-sm-max) {
+    
+            top: 135px;
+            bottom: auto;
+                    
+        }
+        
+        -webkit-transition-property: left, opacity;
+        -moz-transition-property: left, opacity;
+        -ms-transition-property: left, opacity;
+        -o-transition-property: left, opacity;
+        transition-property: left, opacity;
     }
 
     .play-button {
@@ -56,6 +72,15 @@
     left: -20px;
     top: 0px;
     height: auto;
+    @media (max-width: @screen-sm-max) {
+
+        width: 100%;
+        left: auto;
+        top: auto;
+        bottom: 0;
+        right: 0;
+
+    }
 
 }
 
@@ -204,14 +229,11 @@
     }
 
     .text {
-        right: 54%;
+        left: 20px;
         opacity: 1;
-        -webkit-transition-duration: 1s;
-        -moz-transition-duration: 1s;
-        -ms-transition-duration: 1s;
-        -o-transition-duration: 1s;
-        transition-duration: 1s;
         .transition-delay(0.2s);
+        .transition-duration(1s);
+        
     }
 
     .play-button {
@@ -226,11 +248,7 @@
 
     .bg {
         opacity: 1;
-        -webkit-transition-duration: 1s;
-        -moz-transition-duration: 1s;
-        -ms-transition-duration: 1s;
-        -o-transition-duration: 1s;
-        transition-duration: 1s;
+        .transition-duration(1s);
         .transition-delay(1s);
     }
 
@@ -324,7 +342,7 @@
 }
 @media only screen and (max-width: 768px) {
     #sequence {
-        height: 500px;
+        height: 367px;
     }
     #sequence .title {
         font-size: 2.8em;

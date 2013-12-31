@@ -36,6 +36,11 @@
 .banner-container {
     
     height: 726px;
+    @media (max-width: @screen-sm-max) {
+    
+        height: 467px;
+                    
+    }
     
     .jumbotron {
         
@@ -44,6 +49,12 @@
         border-radius: 0;
         margin-top: 82px;
         
+        @media (max-width: @screen-sm-max) {
+    
+                margin-top: 42px;
+                    
+        }
+        
         .box_area_slider {
             width: 100%;
             padding: 0;
@@ -51,6 +62,13 @@
             margin: 0;
             position: relative;
             height: 362px;
+            
+            @media (max-width: @screen-sm-max) {
+    
+                height: 254px;
+                    
+            }
+            
             .box-sizing(border-box);
             
             h2 {
@@ -59,10 +77,19 @@
                 color: #001032;
                 letter-spacing: -0.05em;
                 position: absolute;
+                margin: 0;
                 strong {
                     
                     font-weight: 700px;
                     color: #1b1464;
+                    
+                }
+                
+                @media (max-width: @screen-sm-max) {
+    
+                    font-size: 36px;
+                    top: 10px;
+                    
                     
                 }
             
@@ -74,6 +101,11 @@
                 display: block;
                 left: 50%;
                 top: 86px;
+                
+                @media (max-width: @screen-sm-max) {
+                    top: 38px;
+                }
+                
                 background: url(../img/icons.png) 0 -398px no-repeat;
                 position: absolute;
                 span { display: none; }
@@ -88,6 +120,12 @@
                 letter-spacing: -0.025em;
                 position: absolute;
                 width: 400px;
+                
+                @media (max-width: @screen-sm-max) {
+    
+                    font-size: 14px;
+                    width: 300px;
+                }
 
                 
             }
@@ -120,6 +158,12 @@
         font-size: 36px;
         margin-bottom: 20px;
         
+        @media (max-width: @screen-sm-max) {
+         
+            font-size: 24px;
+            
+        }
+        
         strong {
             color: #6c6eb2;
             font-weight: 600;
@@ -145,6 +189,12 @@
         .inner {
             
             margin: 20px;
+            
+            @media (max-width: @screen-sm-max) {
+                
+                font-size: 12px;
+                
+            }
             
         }
         
