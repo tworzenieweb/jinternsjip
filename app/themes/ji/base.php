@@ -16,6 +16,10 @@
       get_template_part('templates/header');
     }
   ?>
+  
+  <?php if(is_page() && has_post_thumbnail()): ?>
+    <?php get_template_part('templates/page-header'); ?>
+  <?php endif; ?>
 
   <?php if(is_front_page()): ?>
     <?php get_template_part('templates/banner'); ?>

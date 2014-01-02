@@ -21,6 +21,17 @@ var ExampleSite = {
         init: function() {
             // JS here
         }
+    },
+    listings: {
+        init: function() {
+            
+            $('#listings_form select').select2().on('change', function() {
+                
+                passing_data($(this));
+                
+            }).trigger('change');
+            
+        }
     }
 };
 
@@ -71,55 +82,56 @@ jQuery(function() {
             }
         };
 
+        var sequence = $("#sequence").sequence(options).data("sequence");
 
+        sequence.beforeCurrentFrameAnimatesOut = function() {
+
+            var current = sequence.nextFrameID ? sequence.nextFrameID : 1;
+
+
+            $('.sequence-canvas iframe').remove();
+
+            var currentSlide = $('.sequence-canvas li').eq(current - 1);
+
+            $('.banner-container').css("background-image", "url(" + currentSlide.data('background') + ")");
+
+
+
+        };
+        $('.box_area_slider .play-button').on('click', function(e) {
+            e.preventDefault();
+
+            var src = 'http://www.youtube.com/v/URL&amp;autoplay=0&amp;cc_load_policy=1&amp;hd=1&amp;controls=1&amp;autohide=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0&amp;wmode=opaque&amp;html5=1'.replace('URL', $(this).closest('li').data('youtube'));
+
+            var parent = $(this).parent();
+
+
+            $('iframe', parent).remove();
+
+            var movie = $('<iframe>', {
+                width: '100%',
+                height: '100%',
+                frameborder: 0,
+                allowfullscreen: true,
+                css: {
+                    'z-index': 999,
+                    'position': 'absolute',
+                    'top': 0,
+                    'left': 0
+                }
+            }).attr('src', src);
+
+            parent.append(movie);
+
+
+        });
 
     }
-    var sequence = $("#sequence").sequence(options).data("sequence");
-    
-    sequence.beforeCurrentFrameAnimatesOut = function(){
-        
-        var current = sequence.nextFrameID ? sequence.nextFrameID : 1;
-        
-        
-        $('.sequence-canvas iframe').remove();
-        
-        var currentSlide = $('.sequence-canvas li').eq(current - 1);
-        
-        $('.banner-container').css("background-image", "url(" + currentSlide.data('background') + ")");
-        
-        
-        
-    };
-    
-    $('.box_area_slider .play-button').on('click', function(e) {
-       e.preventDefault();
-       
-       var src = 'http://www.youtube.com/v/URL&amp;autoplay=0&amp;cc_load_policy=1&amp;hd=1&amp;controls=1&amp;autohide=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0&amp;wmode=opaque&amp;html5=1'.replace('URL', $(this).closest('li').data('youtube'));
-       
-       var parent = $(this).parent();
-       
-       
-       $('iframe', parent).remove();
-       
-       var movie = $('<iframe>', {
-           width: '100%',
-           height: '100%',
-           frameborder: 0,
-           allowfullscreen: true,
-           css: {
-               'z-index': 999,
-               'position': 'absolute',
-               'top': 0,
-               'left': 0
-           }
-       }).attr('src', src);
-       
-       parent.append(movie);
-       
-       
-    });
-    
-    
+
+
+
+
+
     $('.homepage-container .col-sm-4').equalHeights();
     $('.mcm_programs .body p').equalHeights();
 

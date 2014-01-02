@@ -16,6 +16,7 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'assets/css/main.min.css': [
+            'assets/js/plugins/select2/select2.css',
             'assets/less/app.less'
           ]
         },
@@ -45,6 +46,7 @@ module.exports = function(grunt) {
             'assets/js/plugins/bootstrap/scrollspy.js',
             'assets/js/plugins/bootstrap/tab.js',
             'assets/js/plugins/bootstrap/affix.js',
+            'assets/js/plugins/select2/select2.js',
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
           ]
@@ -68,6 +70,7 @@ module.exports = function(grunt) {
     watch: {
       less: {
         files: [
+          'assets/js/plugins/select2/select2.css',
           'assets/less/*.less',
           'assets/less/bootstrap/*.less'
         ],

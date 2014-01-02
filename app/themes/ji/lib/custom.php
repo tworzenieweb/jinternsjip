@@ -145,3 +145,103 @@ function youtube_save_slide_meta($post_id, $post) {
 }
 
 add_action('save_post', 'youtube_save_slide_meta', 1, 2);
+
+
+add_filter('ajwpqsf_theme_opt', 'my_own_theme');
+
+function my_own_theme($theme){
+    $theme[] =array(
+     'name' => 'jInternship Theme',
+     'themeid' => 'jinternship_listing',
+     'id'   => 'listings_form',
+     'class' => 'form-group',
+    );
+
+    return $theme;
+
+}
+
+
+function form_top($args)
+{
+    
+?>
+<div class="row">
+    <div class="col-sm-3">
+        <h4 class="heading-form">Find your internship.</h4>
+    </div>
+    <div class="col-sm-9">
+<?php
+    
+}
+
+function form_bottom($args)
+{
+?>
+    </div>
+</div>
+<?php
+    
+}
+
+add_action('awpqsf_form_top', 'form_top', 1, 1);
+add_action('awpqsf_form_bottom', 'form_bottom', 1, 1);
+
+add_filter('ajax_wpqsf_reoutput', 'customize_output', '', 4);
+
+
+function customize_output($html, $arg, $id, $pagenumber)
+{
+    $apiclass = new ajaxwpqsfclass();
+    // The Query
+    $query = new WP_Query($arg);
+    $html = '';
+    // The Loop
+    if ($query->have_posts())
+    {
+        
+        $splitAt = floor($query->post_count / 2);
+        
+        
+        $html .= '<h3 class="heading-results">' . __('Internship search results  :', 'AjWPQSF') . '</h3>';
+        
+        
+        
+        $html .= '<div class="row">';
+        $html .= '<div class="col-sm-6">';
+        
+        $i = 0;
+        while ($query->have_posts())
+        {
+            $query->the_post();
+            $html .= '<article><header class="entry-header">' . get_the_post_thumbnail() . '';
+            $html .= '<h4 class="entry-title"><a href="' . get_permalink() . '" rel="bookmark">' . get_the_title() . '</a></h4>';
+            $html .= '</header>';
+            $html .= '<div class="entry-summary">' . get_the_content('Read More');
+            $html .= '</div></article>';
+            
+            
+            if(++$i == $splitAt) {
+                
+                $html .= '</div>';
+                $html .= '<div class="col-sm-6">';
+                
+            }
+            
+        }
+        
+        // end col
+        $htnk .= '</div>';
+        // end row
+        $htnk .= '</div>';
+
+        $html .= $apiclass->ajax_pagination($pagenumber, $query->max_num_pages, 4, $id);
+    } else
+    {
+        $html .= __('Nothing Found', 'AjWPQSF');
+    }
+    /* Restore original Post Data */
+    wp_reset_postdata();
+
+    return $html;
+}
