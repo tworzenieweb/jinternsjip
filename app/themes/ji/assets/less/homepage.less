@@ -3,15 +3,15 @@
     left: auto;
 }
 
-.no-hover() {
+.no-hover(@hover-color: #fff) {
     
     text-decoration:none;
-    color: #fff;
+    color: @hover-color;
     
     &:hover {
         
         text-decoration:none;
-        color: #fff;
+        color: @hover-color;
         
     }
     
@@ -186,6 +186,12 @@
         position: relative;
         min-height: 450px;
         padding-bottom: 50px;
+        
+        @media (max-width: @screen-xs-max) {
+            min-height: 0;
+            border-bottom: 1px solid #d8d8d8;
+        }
+        
         .inner {
             
             margin: 20px;
@@ -217,6 +223,31 @@
 
     background: #fff;
     border: none;
+    
+    .navbar-collapse {
+        border-color: #6c6eb2;
+    }
+    
+    .navbar-toggle {
+        border: none;
+        padding: 4px 9px;
+        
+        .icon-bar {
+            background-color: #f7941d;
+            width: 39px;
+            height: 4px;
+            margin-top: 4px;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+        
+        &:hover, &:focus {
+            background: none;
+            
+        }
+        
+    }
 
     .navbar-nav {
 
@@ -227,11 +258,107 @@
                 color: #313131;
                 font-weight: 700;
                 text-transform: uppercase;
-
             }
 
         }
 
+    }
+    
+    #menu-primary-navigation {
+        
+        li {
+            float: left;
+            
+            a {
+            
+                @media (max-width: @screen-xs-max) { 
+                    font-size: 17px;
+                }
+            
+            }
+        }
+        
+    }
+    
+    #menu-secondary-navigation {
+        margin: 0;
+        padding: 0;
+        
+        @media (max-width: @screen-xs-max) { 
+            overflow: hidden;
+        }
+        
+        li {
+        
+            
+            
+            @media (max-width: @screen-xs-max) { 
+                    
+                border-bottom: 1px solid #6c6eb2;
+                &:last-child {
+                    border:none;
+                }
+                
+                padding: 10px 0;
+                
+                &.open {
+                    
+                    padding-bottom: 0;
+                    
+                }
+                
+                &.active, &.open {
+                    
+                    
+                    a {
+                        
+                        background: none;
+                        
+                    }
+                    
+                }
+
+                
+                a {
+                    color: #f7941d;
+                    font-size: 36px;
+                    font-weight: 400;
+                    letter-spacing: -0.05em;
+                    display: block;
+                    padding-left: 20px;
+                }
+                
+            
+                .dropdown-menu {
+                    background-color: #6c6eb2;
+                    margin: 0;
+                    padding: 0;
+                    margin-top: 9px;
+                    
+                    li {
+                        
+                        padding: 18px 0;
+                        border-bottom: 1px solid #1b1464;
+                        &:last-child {border: none;}
+                        
+                        a {
+                            
+                            font-size: 30px;
+                            font-weight: 600;
+                            color: #1b1464;
+                            
+                            padding-left: 80px;
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+            
+        }
     }
 
     .container {
@@ -247,6 +374,12 @@
         font-weight: 600;
         span {
             .orange();
+        }
+        
+        .no-hover(#1b1464);
+        
+        @media (max-width: @screen-xs-max) { 
+            font-size: 36px;
         }
     }    
     .apply-now {
@@ -271,7 +404,7 @@
 }
 
 
-@media (max-width: @screen-md-min) { 
+@media (min-width: @screen-sm-min) and (max-width: @screen-md-max) { 
 
 
     .navbar-default {

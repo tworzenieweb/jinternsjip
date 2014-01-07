@@ -1,6 +1,38 @@
 .menu {
     background: #1b1464;
 
+    .container {
+        
+        @media (max-width: @screen-xs-max) { 
+            padding: 9px 9px;
+            padding-bottom: 0;
+        }
+        
+    }
+    
+    .navbar {
+        margin-bottom: 4px;
+        height: auto;
+    }
+    
+    .navbar-collapse {
+        padding: 0;
+    }
+    
+    .apply-now {
+       
+        display: inline-block;
+        padding: 3px 20px;
+        font-family: 'Open Sans';
+        font-weight: 700;
+        font-size: 16px;
+        color: #fff !important;
+        border-radius: 4px;
+        #gradient .vertical(#f9b325, #f57615);
+        font-size: 30px;
+        float: right;
+        .clearfix();
+    }
 
     .navbar-nav {
 
