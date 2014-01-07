@@ -56,7 +56,7 @@ function roots_display_sidebar() {
     array(
       'is_404',
       'is_front_page',
-      array('is_page', array('listings'))
+      'is_page'
     ),
     /**
      * Page template checks (via is_page_template())
