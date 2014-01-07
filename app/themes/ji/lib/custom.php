@@ -245,3 +245,6 @@ function customize_output($html, $arg, $id, $pagenumber)
 
     return $html;
 }
+
+
+remove_filter ('the_content','wpautop');
