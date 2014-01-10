@@ -187,9 +187,21 @@ function form_bottom($args)
 add_action('awpqsf_form_top', 'form_top', 1, 1);
 add_action('awpqsf_form_bottom', 'form_bottom', 1, 1);
 
+
+// added full path as custom tag for my-custom-management plugin
+add_filter('mcm_extend_posts', 'add_tabs_mcm', 1, 2);
+
+function add_tabs_mcm($p, $custom)
+{
+    
+    $path = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true);
+    
+    $p['full_path'] = $path;
+    
+    return $p;
+}
+
 add_filter('ajax_wpqsf_reoutput', 'customize_output', '', 4);
-
-
 function customize_output($html, $arg, $id, $pagenumber)
 {
     $apiclass = new ajaxwpqsfclass();
