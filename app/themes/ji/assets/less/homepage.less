@@ -17,11 +17,11 @@
     
 }
 
-.big-button(@font-size: 24px, @padding: 10px 40px) {
+.big-button(@font-size: 24px, @padding: 10px 40px, @shadowSize: 2px) {
     border-radius: 5px;
     
-    -webkit-box-shadow: 2px 2px 2px rgba(0,0,0, 0.56), inset 1px 0 0 rgba(255,255,255,0.41);
-    box-shadow: 2px 2px 2px rgba(0,0,0, 0.56), inset 1px 0 0 rgba(255,255,255,0.41);
+    -webkit-box-shadow: @shadowSize @shadowSize @shadowSize rgba(0,0,0, 0.56), inset @shadowSize 0 0 rgba(255,255,255,0.41);
+    box-shadow: @shadowSize @shadowSize @shadowSize rgba(0,0,0, 0.56), inset @shadowSize 0 0 rgba(255,255,255,0.41);
     
     font-size: @font-size;
     color: #fff;
