@@ -199,8 +199,10 @@ function add_tabs_mcm($p, $custom)
     $p['full_path'] = $path;
     
     $tags = (array) get_the_tags(get_the_ID());
+    $tags = current($tags);
     
-    $p['tag'] = isset($tags[0]) ? $tags[0] : '';
+    $p['tag'] = $tags ? $tags->name : '';
+    
     return $p;
 }
 
