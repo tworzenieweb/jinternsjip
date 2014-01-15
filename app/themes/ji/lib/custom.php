@@ -202,6 +202,7 @@ function add_tabs_mcm($p, $custom)
     $tags = current($tags);
     
     $p['tag'] = $tags ? $tags->name : '';
+    $p['custom'] = $custom;
     
     return $p;
 }
