@@ -200,7 +200,7 @@ function add_tabs_mcm($p, $custom)
     
     $tags = (array) get_the_tags(get_the_ID());
     
-    $p['tag'] = current($tags);
+    $p['tag'] = isset($tags[0]) ? $tags[0] : '';
     return $p;
 }
 
