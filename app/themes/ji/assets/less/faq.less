@@ -1,12 +1,17 @@
 .faq {
     
+    .panel-group .panel+.panel {
+        margin-top: 13px;
+    }
+    
     .panel-default {
     
-        
+        border-color: transparent;
         
         >.panel-heading {
             background: none;
             border: none;
+            border-color: transparent;
             padding: 0;
             
             .panel-title {
@@ -17,7 +22,8 @@
                 .collapsed {
                     big {
                         
-                        
+                        background: url(../img/icons.png) no-repeat top left;
+                        background-position: 0 -598px;
                         
                         
                     }
@@ -41,11 +47,9 @@
             
         }
         
-        >.panel-heading+.panel-collapse .panel-body {
-            border-top-color: none;
-        }
-        
         .panel-body {
+            
+            margin-top: 15px;
             
             big {
                 font-size: 24px;
