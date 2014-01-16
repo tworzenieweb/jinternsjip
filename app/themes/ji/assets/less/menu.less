@@ -2,25 +2,25 @@
     background: #1b1464;
 
     .container {
-        
+
         @media (max-width: @screen-xs-max) { 
             padding: 9px 9px;
             padding-bottom: 0;
         }
-        
+
     }
-    
+
     .navbar {
         margin-bottom: 4px;
         height: auto;
     }
-    
+
     .navbar-collapse {
         padding: 0;
     }
-    
+
     .apply-now {
-       
+
         display: inline-block;
         padding: 3px 20px;
         font-family: 'Open Sans';
@@ -46,10 +46,18 @@
                 &:hover {
                     color: #fff;
                 }
+
+                b.caret { color:#e58923; }
             }
 
         }
 
     }
 
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus
+{
+    background: #8d89b1;
+    color: #fff;
 }
