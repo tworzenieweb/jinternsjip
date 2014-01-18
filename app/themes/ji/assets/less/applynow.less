@@ -15,8 +15,9 @@
         
     }
     
-    input[type=text] {
+    input[type=text], select, textarea {
         display: block;
+        padding: 4px;
     }
     
     .q {
@@ -40,6 +41,12 @@
         font-weight: 800;
         font-size: 12px;
         font-family: 'Open Sans';
+        
+        b {
+            float: right;
+            color: red;
+        }
+        
     }
     
     input[type=radio] + label {
@@ -49,6 +56,12 @@
     
     input[type=radio], #FSForm input[type=checkbox] {
         display: inline-block;
+    }
+    
+    input[type=radio]:last-child {
+        
+        margin-left:10px;
+        
     }
     
     
