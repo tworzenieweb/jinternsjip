@@ -33,7 +33,8 @@
     "wpackagist/wp-super-cache":"*",
     "wpackagist/my-content-management":"*",
     "wpackagist/black-studio-tinymce-widget": "*",
-    "wpackagist/ajax-wp-query-search-filter": "*"
+    "wpackagist/ajax-wp-query-search-filter": "*",
+    "wpackagist/ultimate-tinymce": "*"
   },
   "extra": {
     "installer-paths": {
