@@ -215,6 +215,9 @@ function customize_output($html, $arg, $id, $pagenumber)
     $query = new WP_Query($arg);
     $html = '';
     // The Loop
+    
+    $pagenumber = $pagenumber ? $pagenumber : 1;
+    
     if ($query->have_posts())
     {
         
