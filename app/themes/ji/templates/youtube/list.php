@@ -1,3 +1,4 @@
+<?php global $post; ?>
 <?php if($loop->have_posts()): ?>
 <div class="row">
     <div class="xs-col-10">
