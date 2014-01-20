@@ -10,13 +10,11 @@
     </div>
     <div class="xs-col-2">
         <ul class="list-unstyled thumbnails-youtube">
-<?php while ($loop->have_posts()): $loop->the_post(); ?>
-
-            <li>
-                <img src="http://img.youtube.com/vi/<?php echo get_post_meta(the_ID(), "_youtube_id", true); ?>/1.jpg"
-            </li>
-
-<?php endwhile; ?>
+            <?php while ($loop->have_posts()): $loop->the_post(); ?>
+                <li>
+                    <img src="http://img.youtube.com/vi/<?php echo get_post_meta(get_the_ID(), "_youtube_id", true); ?>/1.jpg" />
+                </li>
+            <?php endwhile; ?>
         </ul>
     </div>
 </div>
