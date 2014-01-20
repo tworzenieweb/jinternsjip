@@ -5,7 +5,7 @@
         
         <iframe id="ytplayer" type="text/html" width="100%" height="345"
                 src="http://www.youtube.com/embed/<?php echo get_post_meta(get_the_ID(), "_youtube_id", true); ?>"
-                frameborder="0"/>
+                frameborder="0" />
         
     </div>
     <div class="xs-col-2">
