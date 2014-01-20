@@ -208,15 +208,16 @@ function add_tabs_mcm($p, $custom)
 }
 
 add_filter('ajax_wpqsf_reoutput', 'customize_output', '', 4);
-function customize_output($html, $arg, $id, $pagenumber)
+function customize_output($results , $arg, $id, $getdata)
 {
+    
     $apiclass = new ajaxwpqsfclass();
     // The Query
     $query = new WP_Query($arg);
     $html = '';
     // The Loop
     
-    $pagenumber = $pagenumber ? $pagenumber : 1;
+    $pagenumber = isset($arg['paged']) ? $arg['paged'] : 1;
     
     if ($query->have_posts())
     {
@@ -252,10 +253,11 @@ function customize_output($html, $arg, $id, $pagenumber)
         }
         
         // end col
-        $htnk .= '</div>';
+        $html .= '</div>';
         // end row
-        $htnk .= '</div>';
+        $html .= '</div>';
 
+        
         $html .= $apiclass->ajax_pagination($pagenumber, $query->max_num_pages, 4, $id);
     } else
     {
