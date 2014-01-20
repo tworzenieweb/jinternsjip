@@ -271,3 +271,22 @@ function customize_output($results , $arg, $id, $getdata)
 
 
 remove_filter ('the_content','wpautop');
+
+add_shortcode('youtube_list', 'youtube_list_shortcode');
+
+function youtube_list_shortcode() {
+    
+    
+    $args = array('post_type' => 'mcm_youtube', 'posts_per_page' => 5);
+    $loop = new WP_Query($args);
+    
+    ob_start();
+    
+    include __DIR__ . '/../' . 'templates/youtube/list.php';
+    
+    $response = ob_get_contents();
+    
+    ob_end_flush();
+    
+    
+}
