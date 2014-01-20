@@ -10,10 +10,10 @@
 <footer class="bottomlinks" role="bottomlinks">
     <div class="container">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> All Rights Reserved</p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
       <?php dynamic_sidebar('sidebar-bottom'); ?>
     </div>
   </div>
