@@ -135,7 +135,7 @@ jQuery(function() {
         if($(window).height() >= 769) {
             $('.homepage-container .col-sm-4').removeAttr('style');
             $('.mcm_programs .body p').removeAttr('style');
-            gi
+            
             $('.homepage-container .col-sm-4').equalHeights();
             $('.mcm_programs .body p').equalHeights();
         }
