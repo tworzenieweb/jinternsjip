@@ -1,6 +1,55 @@
 // Modified http://paulirish.com/2009/markup-based-unobtrusive-comprehensive-dom-ready-execution/
 // Only fires on body class (working off strictly WordPress body_class)
 
+var YoutubeComponent = {
+    
+    wrapper: null,
+    playlist: null,
+    iframe: null,
+    
+    init: function() {
+        
+        console.log('Youtube component start');
+        
+        this.wrapper = $('.youtube-component');
+        this.playlist = $('.thumbnails-youtube', this.wrapper);
+        this.iframe = $('.ytplayer', this.wrapper);
+        
+        this.initEvents();
+    },
+    initEvents: function() {
+        
+        this.playlist.on('click', 'a.change-movie', $.proxy(this.changeVideo, this));
+        
+         this.playlist.tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body",
+            placement: 'right'
+        });
+        
+        this.playlist.mCustomScrollbar({
+                scrollButtons:{
+                        enable:false
+                }
+        });
+        
+    },
+    changeVideo: function(event) {
+        
+        event.preventDefault();
+        
+        console.log('changing video');
+        
+        var target = $(event.currentTarget);
+        
+        console.log('link target', target.attr('href'));
+        
+        this.iframe.attr('src', target.attr('href'));
+        
+    }
+    
+};
+
 var ExampleSite = {
     // All pages
     common: {
@@ -31,6 +80,14 @@ var ExampleSite = {
                 
             }).trigger('change');
             
+        }
+    },
+    'what_interns_say': {
+        
+        init: function() {
+        
+            YoutubeComponent.init();
+        
         }
     }
 };
