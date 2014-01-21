@@ -21,17 +21,13 @@
 
     .apply-now {
 
-        display: inline-block;
-        padding: 3px 20px;
-        font-family: 'Open Sans';
-        font-weight: 700;
-        font-size: 16px;
-        color: #fff !important;
-        border-radius: 4px;
-        #gradient .vertical(#f9b325, #f57615);
-        font-size: 30px;
-        float: right;
+        
+        .big-button(@font-size: 30px, @padding: 3px 20px, @shadowSize: 2px);
+        .pull-right();
+        
         .clearfix();
+        margin-top: -2px;
+        
     }
 
     .navbar-nav {
