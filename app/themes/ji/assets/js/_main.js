@@ -24,7 +24,7 @@ var YoutubeComponent = {
          this.playlist.tooltip({
             selector: "[data-toggle=tooltip]",
             container: "body",
-            placement: 'right'
+            placement: 'left'
         });
         
         this.playlist.mCustomScrollbar({
