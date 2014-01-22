@@ -184,6 +184,8 @@ jQuery(function() {
         });
 
     }
+    
+    Programs.init();
 
 
 

@@ -15,69 +15,117 @@ footer.content-info {
         
     }
     
-    .list-wrapper {
+    .mcm_posts {
+    
+        overflow: hidden;
+        width: 921px;
+        margin-left: 15px;
         
-        .clearfix();
-        
-        .mcm_programs {
-            .make-sm-column(4, 20px);
-            
-            .inner {
-                
-                background: #fff;
-                padding-left: 10px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                
-                img {
-                    width: 96% !important;
-                    max-width: 96% !important;
-                    
-                }
-                
-                .body {
-                    
-                    margin: 30px 16px 10px 16px;
-                    
-                }
-                
-                h4 {
-                    font-size: 18px;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    letter-spacing: -0.025em;
-                    
-                    @media (max-width: @screen-sm-max) {
-                        
-                        font-size: 12.8px;
-                        
-                    }
-                    
-                }
-                
-                p {
-                    color: #484848;
-                    font-size: 14px;
-                    line-height: 20px;
-                    margin-bottom: 30px;
-                    
-                    @media (max-width: @screen-sm-max) {
-                        
-                        font-size: 12px;
-                        
-                    }
-                    
-                    
-                }
-                
-                
-                .read-more-link {
-                    font-weight: 800;
-                    text-transform: uppercase;
-                }
-            }
+        @media (max-width: @screen-sm-max) and (min-width: @screen-sm-min) {
+                    width: 670px;
+                    margin: 0 auto;
         }
         
+        .list-wrapper {
+
+            .clearfix();
+            position: relative;
+
+            .mcm_programs {
+
+                overflow: hidden;
+
+                .make-sm-column(4, 20px);
+
+
+                &:first-child {
+                    
+                    padding-left: 0;
+                    
+                }
+                
+                &:last-child {
+                    
+                    padding-right: 0;
+                    
+                }
+                
+                @media (max-width: @screen-sm-max) {
+                    width: 221px;
+                    padding-left: 7px;
+                    padding-right: 7px;
+                }
+                @media (min-width: @screen-md-min) {
+
+                    width: 310px;
+                }
+
+
+                .inner {
+
+                    background: #fff;
+                    padding-left: 10px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+
+                    img {
+                        width: 96% !important;
+                        max-width: 96% !important;
+                        height: auto;
+
+                    }
+
+                    .body {
+
+                        margin: 30px 16px 10px 16px;
+                        
+                        @media (max-width: @screen-sm-max) { 
+                            margin: 30px 10px 10px 0;
+                        }
+
+                    }
+
+                    h4 {
+                        font-size: 18px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        letter-spacing: -0.025em;
+
+                        @media (max-width: @screen-sm-max) {
+
+                            font-size: 12.8px;
+
+                        }
+
+                    }
+
+                    p {
+                        color: #484848;
+                        font-size: 14px;
+                        line-height: 20px;
+                        margin-bottom: 30px;
+
+                        @media (max-width: @screen-sm-max) {
+
+                            font-size: 12px;
+                            line-height: 14.27px;
+                            margin-bottom: 18px;
+
+                        }
+
+
+                    }
+
+
+                    .read-more-link {
+                        font-weight: 800;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+        }
+    
     }
     
 }
