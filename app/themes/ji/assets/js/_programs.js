@@ -27,13 +27,19 @@ var Programs;
         resizeEvent: function() {
                 
             var equalElements = $('.body p', this.wrapper);
+            var equalElements2 = $('.mcm_programs .inner', this.wrapper);
+            
+            
                 
             if($(window).height() >= 769) {
                 equalElements.removeAttr('style');
                 equalElements.equalHeights();
+                equalElements2.removeAttr('style');
+                equalElements2.equalHeights();
             }
             else {
                 equalElements.removeAttr('style');
+                equalElements2.removeAttr('style');
             }
             
         }
