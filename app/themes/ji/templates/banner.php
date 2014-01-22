@@ -1,7 +1,8 @@
 <div class="banner-container">
 
+    <iframe style="width:100%; height:100%; position: absolute; top:0; left:0; z-index: 999999; display: none;" id="iframe"></iframe>
     <div class="container">
-
+        
         <div class="jumbotron">
             <div id="sequence">
                 <a href="#" class="sequence-prev">Previous</a>
@@ -32,7 +33,7 @@
                 </ul>
                 <ul class="sequence-pagination">
                     <?php foreach ($postsCollection as $key => $post): ?>
-                        <li>
+                        <li data-youtube="<?php echo get_post_meta($post->ID, "_youtube", true); ?>">
                             <?php $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail', true); ?>
 
                             <a href="#" class="play-button"><span>Play</span></a>

@@ -139,48 +139,50 @@ jQuery(function() {
             }
         };
 
+        var iframe = $('#iframe').on('load', function() {
+            
+            $('.play-button', sequence).hide();
+            
+            $(this).css('z-index','999999').show();
+            
+        });
+        
         var sequence = $("#sequence").sequence(options).data("sequence");
 
         sequence.beforeCurrentFrameAnimatesOut = function() {
 
             var current = sequence.nextFrameID ? sequence.nextFrameID : 1;
 
-
-            $('.sequence-canvas iframe').remove();
-
             var currentSlide = $('.sequence-canvas li').eq(current - 1);
 
             $('.banner-container').css("background-image", "url(" + currentSlide.data('background') + ")");
 
+            $('.play-button', sequence).show();
+            iframe.css('z-index','-99999').hide();
 
 
         };
-        $('.box_area_slider .play-button').on('click', function(e) {
+        
+        
+        $('.sequence-pagination > li, .box_area_slider .play-button').on('click', function(e) {
             e.preventDefault();
+            
+            iframe.css('z-index','-99999').hide();
+            
+            var youtube = $(this).data('youtube');
+            youtube = youtube ? youtube : $(this).closest('li').data('youtube');
 
-            var src = 'http://www.youtube.com/v/URL?autoplay=0&amp;cc_load_policy=1&amp;hd=1&amp;controls=1&amp;autohide=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0&amp;wmode=opaque&amp;html5=1'.replace('URL', $(this).closest('li').data('youtube'));
+            var src = 'http://www.youtube.com/v/URL?autoplay=0&amp;cc_load_policy=1&amp;hd=1&amp;controls=1&amp;autohide=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0'.replace('URL', youtube);
 
-            var parent = $(this).parent();
-
-
-            $('iframe', parent).remove();
-
-            var movie = $('<iframe>', {
-                width: '100%',
-                height: '100%',
-                frameborder: 0,
-                allowfullscreen: true,
-                css: {
-                    'z-index': 999,
-                    'position': 'absolute',
-                    'top': 0,
-                    'left': 0
-                }
-            }).attr('src', src);
-
-            parent.append(movie);
-
-
+            var current = sequence.nextFrameID ? sequence.nextFrameID : 1;
+            var currentSlide = $('.sequence-canvas li').eq(current-1);
+            var parent = $('.box_area_slider', currentSlide);
+            
+            parent.append(iframe);
+            iframe.attr('src', src);
+            
+            
+            
         });
 
     }
