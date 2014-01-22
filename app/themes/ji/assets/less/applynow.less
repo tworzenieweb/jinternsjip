@@ -15,7 +15,11 @@
         clear: both;
     }
     
-    input {
+    input[type=checkbox] + input[type=text] {
+        float: none;
+    }
+    
+    input[type=text], textarea {
         background: #f5f5f5;
         border: none;
         
@@ -94,5 +98,6 @@
     
     #FSsubmit {
         .big-button();
+        position: absolute;
     }
 }
