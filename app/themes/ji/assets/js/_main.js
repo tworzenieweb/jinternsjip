@@ -141,10 +141,7 @@ jQuery(function() {
 
         var iframe = $('#iframe').on('load', function() {
             
-            $('.play-button', sequence).hide();
-            
-            $(this).css('z-index','999999').show();
-            
+            $(this).show();
         });
         
         var sequence = $("#sequence").sequence(options).data("sequence");
@@ -157,9 +154,6 @@ jQuery(function() {
 
             $('.banner-container').css("background-image", "url(" + currentSlide.data('background') + ")");
 
-            $('.play-button', sequence).show();
-            iframe.css('z-index','-99999').hide();
-
 
         };
         
@@ -167,22 +161,27 @@ jQuery(function() {
         $('.sequence-pagination > li, .box_area_slider .play-button').on('click', function(e) {
             e.preventDefault();
             
-            iframe.css('z-index','-99999').hide();
-            
             var youtube = $(this).data('youtube');
             youtube = youtube ? youtube : $(this).closest('li').data('youtube');
 
             var src = 'http://www.youtube.com/v/URL?autoplay=0&amp;cc_load_policy=1&amp;hd=1&amp;controls=1&amp;autohide=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0'.replace('URL', youtube);
 
-            var current = sequence.nextFrameID ? sequence.nextFrameID : 1;
-            var currentSlide = $('.sequence-canvas li').eq(current-1);
-            var parent = $('.box_area_slider', currentSlide);
+            var parent;
+
+            if($(this).is('li'))
+            {
+                parent = $('.sequence-canvas li').eq($(this).index());
+                
+            }
+            else {
+                parent = $('.sequence-canvas li.animate-in');
+            }
             
-            parent.append(iframe);
+            console.log(parent);
+            
+            $('.box_area_slider',parent).append(iframe);
             iframe.attr('src', src);
-            
-            
-            
+
         });
 
     }
