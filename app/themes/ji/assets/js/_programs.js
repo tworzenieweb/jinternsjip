@@ -9,7 +9,7 @@ var Programs;
         
         init: function() {
             
-            this.wrapper = $('footer .mcm_posts');
+            this.wrapper = $('footer .excerpt');
             
             this.initEvents();
             
@@ -18,7 +18,7 @@ var Programs;
    
             $(window).on('resize', $.proxy(this.resizeEvent, this));
             
-            $(".list-wrapper", this.wraper).smoothDivScroll({
+            $("footer .excerpt .list-wrapper").smoothDivScroll({
                 mousewheelScrolling: "allDirections",
                 manualContinuousScrolling: false
             });
