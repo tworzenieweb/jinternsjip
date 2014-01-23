@@ -153,12 +153,21 @@ footer.bottomlinks {
         li {
             display: inline-block;
             font-size: 14px;
+            border-right: 1px solid #25aae1;
+            padding: 0 20px;
+            
+            
             a {
                 color: #fff;
                 text-decoration: underline;
             }
-            border-right: 1px solid #25aae1;
-            padding: 0 20px;
+            
+            @media (max-width: @screen-xs-max) {
+                
+                font-size: 13px;
+                padding: 0 12px;
+                
+            }
             
             &:last-child { border-right: none; }
         }
