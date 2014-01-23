@@ -198,6 +198,8 @@ function add_tabs_mcm($p, $custom)
     
     $p['full_path'] = $path;
     
+    $p['image_tag'] = strstr($path, 'default.png') !== false ? '' : sprintf('<img src="%s" class="media-object" />');
+    
     $tags = (array) get_the_tags(get_the_ID());
     $tags = current($tags);
     
