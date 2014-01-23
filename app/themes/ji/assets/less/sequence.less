@@ -145,7 +145,7 @@
 
 .sequence-pagination {
     bottom: 0;
-    display: none;
+    display: block;
     left: 0;
     position: absolute;
     z-index: 10;
@@ -169,14 +169,29 @@
     }
     
     width: 100%;
+    
+    .pagination-wrapper {
+        
+        width: 100%;
+        display: block;
+        position: relative;
+        
+    }
+    
+    .pagination-block {
+        padding: 0; margin: 0;
+        display: none;
+        position: relative;
+        display:inline-block;
+        white-space: nowrap;
+    }
 
 }
 .sequence-pagination li {
-    display: block;
+    display: inline-block;
     height: 88px;
     width: 240px;
     position: relative;
-    float: left;
 }
 
 .sequence-pagination li {

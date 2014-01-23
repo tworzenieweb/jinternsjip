@@ -32,6 +32,7 @@
                 </ul>
                 <div class="sequence-pagination">
                     <div class="wrapper-pagination">
+                        <ul class="pagination-block">
                     <?php foreach ($postsCollection as $key => $post): ?>
                         <li data-youtube="<?php echo get_post_meta($post->ID, "_youtube", true); ?>">
                             <?php $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail', true); ?>
@@ -40,6 +41,7 @@
                             <img src="<?php echo $url[0]; ?>" />
                         </li>
                     <?php endforeach; ?>
+                        </ul>
                     </div>
                 </div>
             </div>

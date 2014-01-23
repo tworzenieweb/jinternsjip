@@ -127,9 +127,9 @@ jQuery(function() {
             hidePreloaderDelay: 1000,
             nextButton: false,
             prevButton: false,
-            pagination: true,
             pauseButton: false,
             preloader: true,
+            pagination: '.pagination-block',
             hidePreloaderUsingCSS: false,
             animateStartingFrameIn: true,
             navigationSkipThreshold: 1700,
@@ -164,6 +164,8 @@ jQuery(function() {
         
         
         $('.sequence-pagination li, .box_area_slider .play-button').on('click', function(e) {
+
+            e.preventDefault();
 
             var youtube = $(this).data('youtube');
             youtube = youtube ? youtube : $(this).closest('li').data('youtube');
