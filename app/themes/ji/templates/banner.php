@@ -10,10 +10,10 @@
                 <ul class="sequence-canvas">       
                     <?php
                     wp_reset_query();
-                    $bannerArgs = array('post_type' => 'slide', 'posts_per_page' => 10);
-                    $loopBaner = new WP_Query($bannerArgs);
+                    query_posts('posts_per_page=10&post_type=slide');
                     $images = $postsCollection = array();
-                    while ($loopBaner->have_posts()) : $loopBaner->the_post(); ?>
+                    global $post;
+                    while (have_posts()) : the_post(); ?>
                         <?php $postsCollection[] = $post; ?>
                         <?php $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full', true); ?>
                         <li data-youtube="<?php echo get_post_meta($post->ID, "_youtube", true); ?>" data-background="<?php echo $url[0] ?>">
