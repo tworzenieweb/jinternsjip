@@ -9,11 +9,10 @@
                 <a href="#" class="sequence-next">Next</a>
                 <ul class="sequence-canvas">       
                     <?php
-                    $bannerArgs = array('post_type' => 'slide', 'posts_per_page' => 5);
+                    $bannerArgs = array('post_type' => 'slide', 'posts_per_page' => 10);
                     $loopBaner = new WP_Query($bannerArgs);
                     $images = $postsCollection = array();
-                    while ($loopBaner->have_posts()) : $loopBaner->the_post();
-                        ?>
+                    while ($loopBaner->have_posts()) : $loopBaner->the_post(); ?>
                         <?php $postsCollection[] = $post; ?>
                         <?php $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full', true); ?>
                         <li data-youtube="<?php echo get_post_meta($post->ID, "_youtube", true); ?>" data-background="<?php echo $url[0] ?>">
