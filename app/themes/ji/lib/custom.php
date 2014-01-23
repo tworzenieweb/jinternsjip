@@ -196,9 +196,9 @@ function add_tabs_mcm($p, $custom)
     
     $path = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true);
     
-    $p['full_path'] = $path;
+    $p['full_path'] = $path[0];
     
-    $p['image_tag'] = strstr($path, 'default.png') !== false ? '' : sprintf('<img src="%s" class="media-object" />', $path);
+    $p['image_tag'] = strstr($path[0], 'crystal/default.png') !== false ? '' : sprintf('<img src="%s" class="media-object" />', $path[0]);
     
     $tags = (array) get_the_tags(get_the_ID());
     $tags = current($tags);
