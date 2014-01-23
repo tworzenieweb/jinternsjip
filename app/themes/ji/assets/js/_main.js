@@ -145,6 +145,11 @@ jQuery(function() {
         });
         
         var sequence = $("#sequence").sequence(options).data("sequence");
+        
+        $("#sequence .wrapper-pagination").smoothDivScroll({
+                mousewheelScrolling: "allDirections",
+                manualContinuousScrolling: false
+        });
 
         sequence.beforeCurrentFrameAnimatesOut = function() {
 
