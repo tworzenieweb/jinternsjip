@@ -9,6 +9,7 @@
                 <a href="#" class="sequence-next">Next</a>
                 <ul class="sequence-canvas">       
                     <?php
+                    wp_reset_query();
                     $bannerArgs = array('post_type' => 'slide', 'posts_per_page' => 10);
                     $loopBaner = new WP_Query($bannerArgs);
                     $images = $postsCollection = array();
@@ -27,7 +28,6 @@
                             </div>
                         </li>
                     <?php endwhile; ?>
-                    <?php wp_reset_query(); ?>
 
                 </ul>
                 <ul class="sequence-pagination">
@@ -46,3 +46,4 @@
 
 
 </div>
+<?php wp_reset_query(); ?>
