@@ -10,7 +10,7 @@
                 <ul class="sequence-canvas">       
                     <?php
                     wp_reset_query();
-                    query_posts('posts_per_page=10&post_type=slide');
+                    query_posts('posts_per_page=10&post_type=slide&orderby=date&order=DESC');
                     $images = $postsCollection = array();
                     global $post;
                     while (have_posts()) : the_post(); ?>
