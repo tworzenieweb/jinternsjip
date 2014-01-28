@@ -18,10 +18,14 @@ var Programs;
    
             $(window).on('resize', $.proxy(this.resizeEvent, this));
             
-            $("footer .excerpt .list-wrapper").smoothDivScroll({
-                mousewheelScrolling: "allDirections",
-                manualContinuousScrolling: false
-            });
+            if($(window).width() >= 769) {
+                
+                $("footer .excerpt .list-wrapper").smoothDivScroll({
+                    mousewheelScrolling: "allDirections",
+                    manualContinuousScrolling: false
+                });
+                
+            }
             
         },
         resizeEvent: function() {
@@ -31,11 +35,12 @@ var Programs;
             
             
                 
-            if($(window).height() >= 769) {
+            if($(window).width() >= 769) {
                 equalElements.removeAttr('style');
                 equalElements.equalHeights();
                 equalElements2.removeAttr('style');
                 equalElements2.equalHeights();
+                
             }
             else {
                 equalElements.removeAttr('style');

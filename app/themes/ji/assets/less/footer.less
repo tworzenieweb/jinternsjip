@@ -18,12 +18,23 @@ footer.content-info {
     .mcm_posts {
     
         overflow: hidden;
-        width: 921px;
+        width: 100%;
         margin-left: 15px;
+        
+        @media (min-width: @screen-md-min) {
+        
+            width: 921px;
+        
+        }
         
         @media (max-width: @screen-sm-max) and (min-width: @screen-sm-min) {
                     width: 670px;
                     margin: 0 auto;
+        }
+        
+        @media (max-width: @screen-xs-max)
+        {
+            margin-left: 0;
         }
         
         .list-wrapper {
@@ -50,7 +61,7 @@ footer.content-info {
                     
                 }
                 
-                @media (max-width: @screen-sm-max) {
+                @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
                     width: 221px;
                     padding-left: 7px;
                     padding-right: 7px;
@@ -58,6 +69,13 @@ footer.content-info {
                 @media (min-width: @screen-md-min) {
 
                     width: 310px;
+                }
+                
+                @media (max-width: @screen-xs-max) {
+                    width: 456px;
+                    padding: 0;
+                    margin: 0 auto;
+                    margin-bottom: 15px;
                 }
 
 
@@ -82,6 +100,16 @@ footer.content-info {
                         @media (max-width: @screen-sm-max) { 
                             margin: 30px 10px 10px 0;
                         }
+                        
+                        @media (max-width: @screen-xs-max) { 
+                            p {
+                                
+                                display: none;
+                                
+                            }
+                        }
+                        
+                        
 
                     }
 
@@ -95,6 +123,11 @@ footer.content-info {
 
                             font-size: 12.8px;
 
+                        }
+                        
+                        @media (max-width: @screen-xs-max) { 
+                           font-size: 30px;
+                           text-align: center;
                         }
 
                     }
@@ -120,6 +153,14 @@ footer.content-info {
                     .read-more-link {
                         font-weight: 800;
                         text-transform: uppercase;
+                        
+                        
+                        @media (max-width: @screen-xs-max) { 
+                           font-size: 24px;
+                           text-align: center;
+                           display: block;
+                        }
+                        
                     }
                 }
             }

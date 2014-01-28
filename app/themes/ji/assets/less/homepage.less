@@ -42,6 +42,12 @@
                     
     }
     
+    @media (max-width: @screen-xs-max) {
+    
+        height: 750px;
+                    
+    }
+    
     .jumbotron {
         
         background: #6c6eb2;
@@ -65,7 +71,7 @@
             
             @media (max-width: @screen-sm-max) {
     
-                height: 254px;
+                border-top: 103px solid #fff;
                     
             }
             
@@ -103,8 +109,11 @@
                 left: 50%;
                 top: 86px;
                 
-                @media (max-width: @screen-sm-max) {
-                    top: 38px;
+                @media (max-width: @screen-xs-max) {
+
+                    top: 88px;
+                    left: 40px;
+
                 }
                 
                 background: url(../img/icons.png) 0 -398px no-repeat;
@@ -166,6 +175,19 @@
             
         }
         
+        @media (max-width: @screen-xs-max) {
+         
+            font-size: 30px;
+            text-align: left;
+            
+            strong {
+                
+                font-size: 48px;
+                
+            }
+            
+        }
+        
         strong {
             color: #6c6eb2;
             font-weight: 600;
@@ -202,6 +224,11 @@
                 
                 font-size: 12px;
                 
+            }
+            
+            
+            .col-xs-6:first-child {
+                width: 186px;
             }
             
         }
