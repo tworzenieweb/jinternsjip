@@ -190,11 +190,6 @@ jQuery(function() {
             }
         };
 
-        var iframe = $('#iframe').on('load', function() {
-            
-            $(this).show();
-        });
-        
         var sequence = $("#sequence").sequence(options).data("sequence");
         
         $("#sequence .wrapper-pagination").smoothDivScroll({
@@ -236,8 +231,11 @@ jQuery(function() {
             
             console.log(parent);
             
-            $('.box_area_slider',parent).append(iframe);
-            iframe.attr('src', src);
+            $('#iframe').remove();
+            
+            var videohtml = '<iframe style="width:100%; height:100%; position: absolute; top:0; left:0; z-index: 9999999; display: block;" id="iframe" type="text/html" src="' + src + '"></iframe>';
+            
+            $('.box_area_slider',parent).append(videohtml);
 
         });
 
