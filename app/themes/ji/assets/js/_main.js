@@ -1,53 +1,106 @@
 // Modified http://paulirish.com/2009/markup-based-unobtrusive-comprehensive-dom-ready-execution/
 // Only fires on body class (working off strictly WordPress body_class)
 
+var YoutubeModule = {
+    players: [],
+    init: function() {
+
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+    },
+    initYoutube: function() {
+
+        console.log('Youtube initialized');
+
+        var self = this;
+
+        function onPlayerReady() {
+            console.log("hey Im ready");
+            //do whatever you want here. Like, player.playVideo();
+
+        }
+
+        function onPlayerStateChange() {
+            console.log("my state changed");
+        }
+
+        $('.banner-container .sequence-canvas iframe.youtube').each(function() {
+
+            var t = new YT.Player($(this).attr('id'), {
+                videoId: $(this).data('id'),
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+            }});
+
+
+            self.players.push(t);
+
+        });
+
+    },
+    stopAll: function() {
+
+        var self = this;
+
+        for (var i = 0, max = self.players.length; i < max; i++)
+        {
+            self.players[i].stopVideo();
+        }
+
+    }
+
+};
+
 var YoutubeComponent = {
-    
     wrapper: null,
     playlist: null,
     iframe: null,
-    
     init: function() {
-        
+
         console.log('Youtube component start');
-        
+
         this.wrapper = $('.youtube-component');
         this.playlist = $('.thumbnails-youtube', this.wrapper);
         this.iframe = $('.ytplayer', this.wrapper);
-        
+
         this.initEvents();
     },
     initEvents: function() {
-        
+
         this.playlist.on('click', 'a.change-movie', $.proxy(this.changeVideo, this));
-        
-         this.playlist.tooltip({
+
+        this.playlist.tooltip({
             selector: "[data-toggle=tooltip]",
             container: "body",
             placement: 'left'
         });
-        
+
         this.playlist.mCustomScrollbar({
-                scrollButtons:{
-                        enable:false
-                }
+            scrollButtons: {
+                enable: false
+            }
         });
-        
+
     },
     changeVideo: function(event) {
-        
+
         event.preventDefault();
-        
+
         console.log('changing video');
-        
+
         var target = $(event.currentTarget);
-        
+
         console.log('link target', target.attr('href'));
-        
+
         this.iframe.attr('src', target.attr('href'));
-        
+
     }
-    
+
 };
 
 var ExampleSite = {
@@ -72,73 +125,71 @@ var ExampleSite = {
         }
     },
     faq: {
-        
         init: function() {
-            
+
             $('.faq-categories a').on('click', function(e) {
-                
+
                 e.preventDefault();
-                
+
                 var href = $(this).attr('href').split('#')[1];
-                
+
                 href = href + '-wrapper';
-                
+
                 $('.faq-wrapper').hide();
-                
+
                 $('#' + href).show();
-                
+
             });
-            
+
         }
-        
+
     },
     listings: {
         init: function() {
-            
+
             var listingsForm = $('#listings_form');
-            
+
             $('label', listingsForm).on('click', function(e) {
 
                 e.preventDefault();
 
                 var $this = $(this);
 
-                if($this.hasClass('active'))
+                if ($this.hasClass('active'))
                 {
-                    
-                    if($this.hasClass('all-labels')) {
+
+                    if ($this.hasClass('all-labels')) {
                         $('label', listingsForm).removeClass('active').children('input').prop('checked', false);
                     }
                     else {
                         $this.removeClass('active');
                         $('input', $this).prop('checked', false);
                     }
-                    
+
                 }
                 else {
-                    
-                    if($this.hasClass('all-labels')) {
+
+                    if ($this.hasClass('all-labels')) {
                         $('label', listingsForm).addClass('active').children('input').prop('checked', true);
                     }
                     else {
                         $this.addClass('active');
                         $('input', $this).prop('checked', true);
                     }
-                    
+
                 }
-                
+
                 passing_data($this);
-                
+
             });
-            
+
         }
     },
     'what_interns_say': {
-        
         init: function() {
-        
+
             YoutubeComponent.init();
-        
+
         }
     }
 };
@@ -191,10 +242,10 @@ jQuery(function() {
         };
 
         var sequence = $("#sequence").sequence(options).data("sequence");
-        
+
         $("#sequence .wrapper-pagination").smoothDivScroll({
-                mousewheelScrolling: "allDirections",
-                manualContinuousScrolling: false
+            mousewheelScrolling: "allDirections",
+            manualContinuousScrolling: false
         });
 
         sequence.beforeCurrentFrameAnimatesOut = function() {
@@ -207,50 +258,44 @@ jQuery(function() {
 
 
         };
-        
-        
+
+
         $('.sequence-pagination li, .box_area_slider .play-button').on('click', function(e) {
 
             e.preventDefault();
 
-            var youtube = $(this).data('youtube');
-            youtube = youtube ? youtube : $(this).closest('li').data('youtube');
-
-            var src = 'http://www.youtube.com/v/URL?autoplay=0&amp;cc_load_policy=1&amp;hd=1&amp;controls=1&amp;autohide=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0&amp;wmode=opaque'.replace('URL', youtube);
 
             var parent;
 
-            if($(this).is('li'))
+            if ($(this).is('li'))
             {
                 parent = $('.sequence-canvas li').eq($(this).index());
-                
+
             }
             else {
                 parent = $('.sequence-canvas li.animate-in');
             }
-            
-            console.log(parent);
-            
-            $('#iframe').remove();
-            
-            var videohtml = '<iframe style="width:100%; height:100%; position: absolute; top:0; left:0; z-index: 9999999; display: block;" id="iframe" type="text/html" src="' + src + '"></iframe>';
-            
-            $('.box_area_slider',parent).append(videohtml);
+
+            $('.youtube').hide();
+
+//            YoutubeModule.stopAll();
+
+            $('.youtube', parent).show();
 
         });
 
     }
-    
+
     Programs.init();
 
 
 
     $(window).on('resize', function() {
-    
-        if($(window).height() >= 769) {
+
+        if ($(window).height() >= 769) {
             $('.homepage-container .col-sm-4').removeAttr('style');
             $('.mcm_programs .body p').removeAttr('style');
-            
+
             $('.homepage-container .col-sm-4').equalHeights();
             $('.mcm_programs .body p').equalHeights();
         }
@@ -258,11 +303,24 @@ jQuery(function() {
             $('.homepage-container .col-sm-4').removeAttr('style');
             $('.mcm_programs .body p').removeAttr('style');
         }
-    
+
     }).trigger('resize');
 
 
-    
+    YoutubeModule.init();
+
 
 
 });
+
+function onYouTubeIframeAPIReady() {
+
+
+    $(window).on('load', function() {
+        console.log('initialized');
+        YoutubeModule.initYoutube();
+    });
+
+
+
+}
