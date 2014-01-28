@@ -71,6 +71,27 @@ var ExampleSite = {
             // JS here
         }
     },
+    faq: {
+        
+        init: function() {
+            
+            $('.faq-categories a').on('click', function(e) {
+                
+                e.preventDefault();
+                
+                var href = $(this).attr('href').split('#')[1];
+                
+                href = href + '-wrapper';
+                
+                $('.faq-wrapper').hide();
+                
+                $('#' + href).show();
+                
+            });
+            
+        }
+        
+    },
     listings: {
         init: function() {
             
