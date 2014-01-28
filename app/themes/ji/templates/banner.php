@@ -22,7 +22,7 @@
                                     <?php the_content(); ?>
                                     <a href="#" class="play-button"><span>Play</span></a>
                                     <?php $src = sprintf("http://www.youtube.com/v/%s?autoplay=0&cc_load_policy=1&hd=1&controls=1&autohide=1&rel=0&modestbranding=1&showinfo=0&wmode=transparent", get_post_meta($post->ID, "_youtube", true)); ?>
-                                    <iframe width="100%" height="100%" wmode="Opaque" data-id="<?php echo get_post_meta($post->ID, "_youtube", true); ?>" id="player_<?php echo $post->ID; ?>" style="width:100%; height:100%; position: absolute; top:0; left:0; z-index: 9999; display: none;" class="youtube" type="text/html" src="<?php echo $src; ?>"></iframe>
+                                    <iframe width="100%" height="100%" wmode="Opaque" id="player_<?php echo $post->ID; ?>" style="width:100%; height:100%; position: absolute; top:0; left:0; z-index: 9999; display: none;" class="youtube" src="<?php echo $src; ?>"></iframe>
                                 </div>
 
                             </div>

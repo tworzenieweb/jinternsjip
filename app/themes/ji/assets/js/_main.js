@@ -318,7 +318,7 @@ function onYouTubeIframeAPIReady() {
 
     $(window).on('load', function() {
         console.log('initialized');
-        YoutubeModule.initYoutube();
+//        YoutubeModule.initYoutube();
     });
 
 
