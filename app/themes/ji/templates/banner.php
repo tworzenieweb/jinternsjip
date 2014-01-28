@@ -1,6 +1,6 @@
 <div class="banner-container">
 
-    <iframe style="width:100%; height:100%; position: absolute; top:0; left:0; z-index: 9999999; display: none;" id="iframe"></iframe>
+    <iframe style="width:100%; height:100%; position: absolute; top:0; left:0; z-index: 9999999; display: none;" id="iframe" type="text/html"></iframe>
     <div class="container">
         
         <div class="jumbotron">

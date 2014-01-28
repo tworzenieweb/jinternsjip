@@ -221,7 +221,7 @@ jQuery(function() {
             var youtube = $(this).data('youtube');
             youtube = youtube ? youtube : $(this).closest('li').data('youtube');
 
-            var src = 'http://www.youtube.com/v/URL?autoplay=0&amp;cc_load_policy=1&amp;hd=1&amp;controls=1&amp;autohide=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0'.replace('URL', youtube);
+            var src = 'http://www.youtube.com/v/URL?autoplay=0&amp;cc_load_policy=1&amp;hd=1&amp;controls=1&amp;autohide=1&amp;rel=0&amp;modestbranding=1&amp;showinfo=0&amp;wmode=opaque'.replace('URL', youtube);
 
             var parent;
 
