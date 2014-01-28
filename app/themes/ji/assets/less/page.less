@@ -172,17 +172,32 @@
         }
         
         label {
-            display: block;
+            display: inline-block;
             text-transform: uppercase;
-            font-size: 12px;
-            font-weight: 700;
+/*            font-size: 12px;
+            font-weight: 700;*/
+
+            span {
+                cursor: pointer;
+                
+            }
+            
+            &.active {
+                
+                span {
+                    
+                    background: green;
+                    
+                }
+                
+            }
         }
         
         .select2-container {
             width: 300px;
         }
         .awpqsf_submit {
-            /*display:none;*/
+            display:none;
         }
     }
     

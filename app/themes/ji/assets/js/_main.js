@@ -74,11 +74,41 @@ var ExampleSite = {
     listings: {
         init: function() {
             
-            $('#listings_form select').select2().on('change', function() {
+            var listingsForm = $('#listings_form');
+            
+            $('label', listingsForm).on('click', function(e) {
+
+                e.preventDefault();
+
+                var $this = $(this);
+
+                if($this.hasClass('active'))
+                {
+                    
+                    if($this.hasClass('all-labels')) {
+                        $('label', listingsForm).removeClass('active').children('input').prop('checked', false);
+                    }
+                    else {
+                        $this.removeClass('active');
+                        $('input', $this).prop('checked', false);
+                    }
+                    
+                }
+                else {
+                    
+                    if($this.hasClass('all-labels')) {
+                        $('label', listingsForm).addClass('active').children('input').prop('checked', true);
+                    }
+                    else {
+                        $this.addClass('active');
+                        $('input', $this).prop('checked', true);
+                    }
+                    
+                }
                 
-                passing_data($(this));
+                passing_data($this);
                 
-            }).trigger('change');
+            });
             
         }
     },
