@@ -19,8 +19,8 @@
                             <div class="start_anime">
 
                                 <div class="box_area_slider">
-                                    <?php $src = sprintf("http://www.youtube.com/v/%s?autoplay=0&cc_load_policy=1&hd=1&controls=1&autohide=1&rel=0&modestbranding=1&showinfo=0&wmode=opaque", get_post_meta($post->ID, "_youtube", true)); ?>
-                                    <iframe width="100%" height="100%" wmode="Opaque" id="player_<?php echo $post->ID; ?>" class="youtube" src="<?php echo $src; ?>" frameborder="1" ></iframe>
+                                    <?php $src = sprintf("http://www.youtube.com/v/%s?wmode=transparent", get_post_meta($post->ID, "_youtube", true)); ?>
+                                    <iframe id="player_<?php echo $post->ID; ?>" class="youtube" src="<?php echo $src; ?>" frameborder="0" wmode="Opaque"></iframe>
                                     <?php the_content(); ?>
                                     <a href="#" class="play-button"><span>Play</span></a>
                                 </div>
