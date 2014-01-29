@@ -179,12 +179,12 @@ function form_top($args)
 
     <div class="row">
         <div class="col-sm-12">
-    <?php
-}
+            <?php
+        }
 
-function form_bottom($args)
-{
-    ?>
+        function form_bottom($args)
+        {
+            ?>
         </div>
     </div>
     <?php
@@ -213,6 +213,51 @@ function add_tabs_mcm($p, $custom)
     $p['custom'] = $custom;
 
     return $p;
+}
+
+add_filter('ajwpqsf_pagination', 'customize_pagination', '', 4);
+
+function customize_pagination($html, $max_num_pages, $pagenumber, $id)
+{
+    $pages = $max_num_pages;
+    $range = 4;
+    $showitems = ($range * 2) + 1;
+    $paged = $pagenumber;
+    if (empty($paged))
+    {
+        $paged = 1;
+    }
+
+    $html = '<input type="hidden" id="curform" value="#ajax_wpqsffrom_' . $id . '">';
+    $html .= '<ul class="pagination">';
+    //<span>Page ".$paged." of ".$pages."</span>";
+    if ($paged > 2 && $paged > $range + 1 && $showitems < $pages)
+        $html .= '<li><a id="1" class="pagievent" href="#">&laquo; ' . __("First", "AjWPQSF") . '</a></li>';
+    $previous = $paged - 1;
+    if ($paged > 1 && $showitems < $pages)
+        $html .= '<li><a id="' . $previous . '" class="pagievent" href="#">&lsaquo; ' . __("Previous", "AjWPQSF") . '</a></li>';
+
+    for ($i = 1; $i <= $pages; $i++)
+    {
+        if (1 != $pages && (!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems ))
+        {
+            $html .= ($paged == $i) ? '<li class="active"><span>' . $i . '</span></li>' : 
+                '<li><a id="' . $i . '" href="#" class="pagievent inactive">' . $i . '</a></li>';
+        }
+    }
+
+    if ($paged < $pages && $showitems < $pages)
+    {
+        $next = $paged + 1;
+        $html .= '<li><a id="' . $next . '" class="pagievent"  href="#">' . __("Next", "AjWPQSF") . ' &rsaquo;</a></li>';
+    }
+    if ($paged < $pages - 1 && $paged + $range - 1 < $pages && $showitems < $pages)
+    {
+        $html .= '<li><a id="' . $pages . '" class="pagievent"  href="#">' . __("Last", "AjWPQSF") . ' &raquo;</a></li>';
+    }
+    $html .= "</ul>\n";
+    
+    return $html;
 }
 
 add_filter('ajax_wpqsf_reoutput', 'customize_output', '', 4);
@@ -248,7 +293,16 @@ function customize_output($results, $arg, $id, $getdata)
             $html .= '<article><header class="entry-header">' . get_the_post_thumbnail() . '';
             $html .= '<h4 class="entry-title"><a href="' . get_permalink() . '" rel="bookmark">' . get_the_title() . '</a></h4>';
             $html .= '</header>';
-            $html .= '<div class="entry-summary">' . get_the_content('Read More');
+            $html .= '<div class="entry-summary">';
+            $html .= '<h4>ORGANIZATION ACTIVITIES</h4>';
+            $html .= '<p>' . get_post_meta(get_the_ID(), '_organization_activities', true) . '</p>';
+            $html .= '<h4>INTERNSHIP DESCRIPTION</h4>';
+            $html .= '<p>' . get_the_excerpt() . '</p>';
+            $html .= '<h4>Industry:</h4>';
+            $html .= '<p>' . get_post_meta(get_the_ID(), '_industry', true) . '</p>';
+            $html .= '<h4>Hebrev level:</h4>';
+            $html .= '<p>' . get_post_meta(get_the_ID(), '_hebrev_level', true) . '</p>';
+            $html .= '<a href="' . get_permalink() . '" class="more-link">Read More</a>';
             $html .= '</div></article>';
 
 
@@ -302,7 +356,7 @@ add_filter('ajwpqs_cmf_field_checkbox', 'field_checkbox', 1, 10);
 function field_checkbox($html, $type, $metakey, $compare, $metaval, $label, $all, $i, $divclass, $formid)
 {
 
-    
+
     $opts = explode("|", $metaval);
     $html = '<div class="' . $divclass . ' cmfcheckbox-' . $i . ' togglecheck">';
     $html .= '<input type="hidden" name="cmf[' . $i . '][metakey]" value="' . $metakey . '">';

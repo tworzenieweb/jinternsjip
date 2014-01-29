@@ -34,7 +34,10 @@
     "wpackagist/my-content-management":"*",
     "wpackagist/black-studio-tinymce-widget": "*",
     "wpackagist/ajax-wp-query-search-filter": "*",
-    "wpackagist/ultimate-tinymce": "*"
+    "wpackagist/ultimate-tinymce": "*",
+    "wpackagist/formidable": "*",
+    "wpackagist/seamless-donations": "*",
+    "wpackagist/csv-importer": "*"
   },
   "extra": {
     "installer-paths": {
