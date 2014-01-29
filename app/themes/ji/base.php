@@ -20,6 +20,9 @@
   <?php if(is_page() && has_post_thumbnail()): ?>
     <?php get_template_part('templates/page-header'); ?>
   <?php endif; ?>
+  <?php if('mcm_listing' === get_post_type()): ?>
+    <?php get_template_part('templates/page-header-listing'); ?>
+  <?php endif; ?>
 
   <?php if(is_front_page()): ?>
     <?php get_template_part('templates/banner'); ?>
