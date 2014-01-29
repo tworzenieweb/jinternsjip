@@ -19,7 +19,7 @@
                             <div class="start_anime">
 
                                 <div class="box_area_slider">
-                                    <?php $src = sprintf("http://www.youtube.com/v/%s?wmode=transparent", get_post_meta($post->ID, "_youtube", true)); ?>
+                                    <?php $src = sprintf("http://www.youtube.com/embed/%s?wmode=transparent", get_post_meta($post->ID, "_youtube", true)); ?>
                                     <iframe id="player_<?php echo $post->ID; ?>" class="youtube" src="<?php echo $src; ?>" frameborder="0" wmode="Opaque"></iframe>
                                     <?php the_content(); ?>
                                     <a href="#" class="play-button"><span>Play</span></a>
