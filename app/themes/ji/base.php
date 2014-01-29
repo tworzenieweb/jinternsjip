@@ -32,6 +32,7 @@
     <div class="content row">
       <main class="main <?php echo roots_main_class(); ?>" role="main">
         <?php include roots_template_path(); ?>
+        <div class="fb-like" data-href="https://www.facebook.com/JInternship" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
       </main><!-- /.main -->
       <?php if (roots_display_sidebar()) : ?>
         <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
