@@ -319,14 +319,6 @@
         
         li {
             float: left;
-            
-            a {
-            
-                @media (max-width: @screen-xs-max) { 
-                    font-size: 17px;
-                }
-            
-            }
         }
         
     }
@@ -482,4 +474,12 @@
     }
 
 
+}
+
+@media (max-width: @screen-xs-max) { 
+    
+    .navbar-default #menu-primary-navigation li a {
+        font-size: 11px;
+        padding: 10px 4px;
+    }
 }
