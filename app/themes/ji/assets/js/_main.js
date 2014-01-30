@@ -310,7 +310,7 @@ jQuery(function() {
 
 //            YoutubeModule.stopAll();
 
-            $('.youtube', parent).show();
+//            $('.youtube', parent).show();
 
         });
 
