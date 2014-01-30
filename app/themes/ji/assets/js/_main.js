@@ -310,7 +310,9 @@ jQuery(function() {
 
 //            YoutubeModule.stopAll();
 
-//            $('.youtube', parent).show();
+            if($(this).is('.play-button')) {
+                $('.youtube', parent).show();
+            }
 
         });
 
