@@ -5,7 +5,7 @@
     width: 100%;
     max-width: 1280px;
     position: relative;
-    height: 533px;
+    height: 460px;
     
     @media (max-width: @screen-sm-max) {
         
@@ -54,13 +54,23 @@
                     
         }
         
-        @media (max-width: @screen-xs-max) {
+        @media (min-width: 579px) and (max-width: @screen-xs-max) {
     
             font-size: 30px;
             color: #fff;
             line-height: 36px;
             width: 100%;
-            top: 380px;
+            top: 294px;
+                    
+        }
+        
+        @media (max-width: 578px) {
+    
+            top: 378px;
+            font-size: 22px;
+            color: #fff;
+            line-height: 36px;
+            width: 95%;
                     
         }
         
@@ -293,6 +303,7 @@
     
             top: -86px;
             width: 96%;
+            font-size: 24px;
                     
         }
     }
@@ -475,10 +486,7 @@
 }
 @media only screen and (max-width: 468px) {
 
-    #sequence .sequence-pagination {
-        opacity: 0;
-        visibility: hidden;
-    }
+
 }
 @media only screen and (max-width: 418px) {
 
