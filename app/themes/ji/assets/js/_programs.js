@@ -18,28 +18,22 @@ var Programs;
    
             $(window).on('resize', $.proxy(this.resizeEvent, this));
             
-            if($(window).width() >= 769) {
-                
-                $("footer .excerpt .list-wrapper").smoothDivScroll({
-                    mousewheelScrolling: "allDirections",
-                    manualContinuousScrolling: false
-                });
-                
-            }
-            
         },
         resizeEvent: function() {
                 
             var equalElements = $('.body p', this.wrapper);
             var equalElements2 = $('.mcm_programs .inner', this.wrapper);
-            
-            
                 
             if($(window).width() >= 769) {
                 equalElements.removeAttr('style');
                 equalElements.equalHeights();
                 equalElements2.removeAttr('style');
                 equalElements2.equalHeights();
+                
+                $("footer .excerpt .list-wrapper").smoothDivScroll({
+                    mousewheelScrolling: "allDirections",
+                    manualContinuousScrolling: false
+                });
                 
             }
             else {
