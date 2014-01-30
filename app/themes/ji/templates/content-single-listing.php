@@ -25,7 +25,7 @@
       
         <?php $content = get_post_meta(get_the_ID(), $key, true); ?>
         <?php if($content): ?>
-            <h4><?php echo $label; ?>:</h4>
+            <h3><?php echo strtoupper($label); ?>:</h3>
             <p><?php echo $content; ?></p>
         <?php endif; ?>
       <?php endforeach; ?>
