@@ -260,6 +260,15 @@ function customize_pagination($html, $max_num_pages, $pagenumber, $id)
     return $html;
 }
 
+add_filter('dgx_donate_giving_levels', 'donation_amounts', '', 1);
+
+function donation_amounts($amounts) {
+    
+    return array(300,350);
+    
+}
+
+
 add_filter('ajax_wpqsf_reoutput', 'customize_output', '', 4);
 
 function customize_output($results, $arg, $id, $getdata)

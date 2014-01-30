@@ -14,11 +14,10 @@
       <h3 class="details">Internship Details</h3>
       
       <?php $details = array(
-          '_company' => 'Company',
           '_qualifications' => 'Qualifications',
           '_industry' => 'Industry',
           '_benefits' => 'Benefits',
-          '_hebrev_level' => 'Hebrev level',
+          '_hebrev_level' => 'Hebrew level',
           '_notes' => 'Notes'
       ); ?>
       
