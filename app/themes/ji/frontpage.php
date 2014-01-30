@@ -1,3 +1,10 @@
+<?php
+
+/**
+Template Name: Frontpage
+ */
+
+?>
 <div class="row">
     <div class="col-xs-12">
         <?php while (have_posts()) : the_post(); ?>
