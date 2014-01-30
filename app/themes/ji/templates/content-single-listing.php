@@ -11,8 +11,6 @@
       
       <?php echo get_the_content(null, true); ?>
       
-      <h3 class="details">Internship Details</h3>
-      
       <?php $details = array(
           '_qualifications' => 'Qualifications',
           '_industry' => 'Industry',
