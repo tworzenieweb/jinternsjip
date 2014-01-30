@@ -276,48 +276,40 @@ function customize_output($results, $arg, $id, $getdata)
     if ($query->have_posts())
     {
 
-        $splitAt = floor($query->post_count / 2);
-
 
         $html .= '<h3 class="heading-results">' . __('Internship search results  :', 'AjWPQSF') . '</h3>';
 
-
-
-        $html .= '<div class="row">';
-        $html .= '<div class="col-sm-6">';
-
-        $i = 0;
+        $i = 1;
         while ($query->have_posts())
         {
             $query->the_post();
-            $html .= '<article><header class="entry-header">' . get_the_post_thumbnail() . '';
-            $html .= '<h4 class="entry-title"><a href="' . get_permalink() . '" rel="bookmark">' . get_the_title() . '</a></h4>';
-            $html .= '</header>';
+
+            
+            if(($i % 2) == 1) {
+                $html .= '<div class="row">';
+            }
+            
+            $html .= '<div class="col-sm-6">';
             $html .= '<div class="entry-summary">';
+            $html .= '<h4 class="entry-title"><a href="' . get_permalink() . '" rel="bookmark">' . get_the_title() . '</a></h4>';
             $html .= '<h4>ORGANIZATION ACTIVITIES</h4>';
             $html .= '<p>' . get_post_meta(get_the_ID(), '_organization_activities', true) . '</p>';
             $html .= '<h4>INTERNSHIP DESCRIPTION</h4>';
             $html .= '<p>' . get_the_excerpt() . '</p>';
             $html .= '<h4>Industry:</h4>';
             $html .= '<p>' . get_post_meta(get_the_ID(), '_industry', true) . '</p>';
-            $html .= '<h4>Hebrev level:</h4>';
+            $html .= '<h4>Hebrew level:</h4>';
             $html .= '<p>' . get_post_meta(get_the_ID(), '_hebrev_level', true) . '</p>';
+            $html .= '</div>';
             $html .= '<a href="' . get_permalink() . '" class="more-link">Read More</a>';
-            $html .= '</div></article>';
+            $html .= '</div>';
 
 
-            if (++$i == $splitAt)
-            {
-
+             if((++$i % 2) == 1 || $i-1 == $query->post_count) {
                 $html .= '</div>';
-                $html .= '<div class="col-sm-6">';
             }
-        }
 
-        // end col
-        $html .= '</div>';
-        // end row
-        $html .= '</div>';
+        }
 
 
         $html .= $apiclass->ajax_pagination($pagenumber, $query->max_num_pages, 4, $id);

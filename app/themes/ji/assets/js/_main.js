@@ -35,7 +35,7 @@ var YoutubeModule = {
                 events: {
                     'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange
-            }});
+                }});
 
 
             self.players.push(t);
@@ -145,10 +145,40 @@ var ExampleSite = {
 
     },
     listings: {
+        loadResults: function($obj) {
+
+            var ajxdiv = $obj.closest("form").find("#jaxbtn").val();
+            var res = {loader: $('<div />', {'class': 'mloading'}), container: $('' + ajxdiv + '')};
+
+            var getdata = $obj.closest("form").serialize();
+            var pagenum = '1';
+
+            jQuery.ajax({
+                type: 'POST',
+                url: ajax.url,
+                data: ({action: 'awpqsf_ajax', getdata: getdata, pagenum: pagenum}),
+                beforeSend: function() {
+                    $('' + ajxdiv + '').empty();
+                    res.container.append(res.loader);
+                },
+                success: function(html) {
+                    res.container.find(res.loader).remove();
+                    $('' + ajxdiv + '').html(html);
+
+                    $('#listing-results .row').each(function() {
+                        
+                        $('.entry-summary', $(this)).equalHeights();
+                        
+                    });
+
+                }
+            });
+
+        },
         init: function() {
 
             var listingsForm = $('#listings_form');
-
+            var self = this;
             $('label', listingsForm).on('click', function(e) {
 
                 e.preventDefault();
@@ -179,7 +209,7 @@ var ExampleSite = {
 
                 }
 
-                passing_data($this);
+                self.loadResults($this);
 
             });
 
