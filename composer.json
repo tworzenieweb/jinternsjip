@@ -37,7 +37,8 @@
     "wpackagist/ultimate-tinymce": "*",
     "wpackagist/formidable": "*",
     "wpackagist/seamless-donations": "*",
-    "wpackagist/csv-importer": "*"
+    "wpackagist/csv-importer": "*",
+    "wpackagist/codepress-admin-columns": "*"
   },
   "extra": {
     "installer-paths": {
