@@ -13,10 +13,22 @@
     .navbar {
         margin-bottom: 4px;
         height: auto;
+        
+        @media (max-width: @screen-sm-max)
+        {
+            margin-bottom: 0;
+        }
     }
 
     .navbar-collapse {
         padding: 0;
+    }
+    
+    .navbar-toggle {
+        @media (max-width: @screen-sm-max)
+        {
+            margin-top: 0;
+        }
     }
 
     .apply-now {
@@ -27,6 +39,12 @@
         
         .clearfix();
         margin-top: -2px;
+        
+        @media (max-width: @screen-sm-max)
+        {
+            font-size:19px;
+            font-weight: 500;
+        }
         
     }
 
