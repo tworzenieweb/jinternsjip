@@ -167,7 +167,9 @@ var ExampleSite = {
 
                     $('#listing-results .row').each(function() {
                         
-                        $('.entry-summary', $(this)).equalHeights();
+                        if($(window).width() >= 769) {
+                            $('.entry-summary', $(this)).equalHeights();
+                        }
                         
                     });
 
@@ -324,7 +326,7 @@ jQuery(function() {
 
     $(window).on('resize', function() {
 
-        if ($(window).height() >= 769) {
+        if ($(window).width() >= 769) {
             $('.homepage-container .col-sm-4').removeAttr('style');
             $('.mcm_programs .body p').removeAttr('style');
 
