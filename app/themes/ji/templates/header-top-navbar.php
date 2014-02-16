@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                 </button>
             
-                <a href="http://ji.dev/apply-now/" class="apply-now visible-xs">Apply Now</a>
+                <a href="/apply-now/" class="apply-now visible-xs">Apply Now</a>
                 
             </div>
             
