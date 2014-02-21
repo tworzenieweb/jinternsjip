@@ -380,5 +380,5 @@ add_filter('dgx_donate_donation_form', 'form_replace', 999, 1);
 
 function form_replace($form)
 {
-    return str_replace(array('Donation', 'Donor ', 'donation', 'donate'), array('Payment', '', 'payment', 'payment'), $form);
+    return str_replace(array('Donation', 'Donor ', ' donation', ' donate'), array('Payment', '', ' payment', ' payment'), $form);
 }
