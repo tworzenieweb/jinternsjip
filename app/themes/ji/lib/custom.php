@@ -381,8 +381,8 @@ add_filter('dgx_donate_donation_form', 'form_replace', 999, 1);
 function form_replace($form)
 {
     
-    $find = array('Donation', 'Donor ', ' donation', ' donate', "<input class='dgx-donate-pay-enabled' type='image' src='http://jinternship.com/app/plugins/seamless-donations/images/paypal_btn_donate_lg.gif' value='Donate Now'/>");
-    $replace = array('Payment', '', ' payment', ' payment', '<button type="submit" class="btn btn-primary dgx-donate-pay-enabled">Pay Now</button>');
+    $find = array('Donation', 'Donor ', ' donation', ' donate', "<input class='dgx-donate-pay-enabled' type='image' src='http://jinternship.com/app/plugins/seamless-donations/images/paypal_btn_donate_lg.gif' value='Donate Now'/>", "<img class='dgx-donate-pay-disabled' src='http://jinternship.com/app/plugins/seamless-donations/images/paypal_btn_donate_lg_disabled.gif' />");
+    $replace = array('Payment', '', ' payment', ' payment', '<button type="submit" class="btn btn-primary dgx-donate-pay-enabled">Pay Now</button>', '');
     
     
     return str_replace($find, $replace, $form);
