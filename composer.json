@@ -38,7 +38,9 @@
     "wpackagist/formidable": "*",
     "wpackagist/seamless-donations": "*",
     "wpackagist/csv-importer": "*",
-    "wpackagist/codepress-admin-columns": "*"
+    "wpackagist/codepress-admin-columns": "*",
+    "wpackagist/codestyling-localization": "*",
+    "wpackagist/google-analytics-dashboard-for-wp": "*"
   },
   "extra": {
     "installer-paths": {
